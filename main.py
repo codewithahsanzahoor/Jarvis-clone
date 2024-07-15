@@ -69,7 +69,7 @@ def perform_action(command):
 if __name__ == "__main__":
     while True:
         # Continuously listen for the wake word
-        # if listen_for_wake_word():
-        # print("Wake word detected!")
-        command = listen_for_command()
-        perform_action(command)
+        if listen_for_wake_word():
+            print("Wake word detected!")
+            command = listen_for_command()
+            perform_action(command)
