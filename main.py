@@ -15,6 +15,7 @@ def speak(text):
     engine.runAndWait()
 
 
+# Initialize the music dictionary for jarvis to play.
 music = {
     "workout": "https://www.youtube.com/watch?v=LVbUNRwpXzw&t=900s",
 
@@ -32,7 +33,7 @@ def listen_for_wake_word():
             recognizer.adjust_for_ambient_noise(source)
             print("Listening for wake word...")
             audio_data = recognizer.listen(
-                source, timeout=10, phrase_time_limit=5)
+                source, timeout=2, phrase_time_limit=1)
             print("Recognizing wake word...")
             text = recognizer.recognize_google(audio_data).lower()
             print(f"Heard: {text}")
@@ -59,7 +60,7 @@ def listen_for_command():
         try:
             recognizer.adjust_for_ambient_noise(source)
             audio_data = recognizer.listen(
-                source, timeout=10, phrase_time_limit=5)
+                source, timeout=2, phrase_time_limit=1)
             print("Recognizing command...")
             command = recognizer.recognize_google(audio_data).lower()
             print(f"Command: {command}")
